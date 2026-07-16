@@ -1,0 +1,20 @@
+// Last updated: 7/16/2026, 4:04:26 PM
+class Solution {
+    public int areaOfMaxDiagonal(int[][] dimensions) {
+        int maxDiag = 0;
+        int maxArea = 0;
+        for (int[] rect : dimensions) {
+            int l = rect[0];
+            int w = rect[1];
+            int diagSq = l * l + w * w;
+            int area = l * w;
+            if (diagSq > maxDiag) {
+                maxDiag = diagSq;
+                maxArea = area;
+            } else if (diagSq == maxDiag) {
+                maxArea = Math.max(maxArea, area);
+            }
+        }
+        return maxArea;
+    }
+}
